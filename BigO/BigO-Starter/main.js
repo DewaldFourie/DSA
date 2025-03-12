@@ -38,6 +38,28 @@ function logFirstTwoBoxes(boxes) {
 logFirstTwoBoxes(boxes);
 
 
+// --------------------------  O(n + m) -----------------------------------------------------------------------
+console.log('');
+console.log('');
+
+function compressBoxesTwice(boxes, boxes2) {
+    console.log('----------- Running O(1) example ------------');
+    console.log('');
+
+    boxes.forEach(function(boxes) {
+        console.log(boxes);   
+    })
+
+    boxes2.forEach(function(boxes) {
+        console.log(boxes);
+        
+    })
+}
+
+// NB ---> DIFFERENT INPUTS SHOULD HAVE DIFFERENT VARIABLES !!!! 
+
+// O(a + b)     and if nested =>   O(a*b)
+
 // --------------------------  O(n^2) -------------------------------------------------------------------------
 console.log('');
 console.log('');

@@ -43,7 +43,7 @@ console.log('');
 console.log('');
 
 function compressBoxesTwice(boxes, boxes2) {
-    console.log('----------- Running O(1) example ------------');
+    console.log('----------- Running O(n + m) example ------------');
     console.log('');
 
     boxes.forEach(function(boxes) {
@@ -55,6 +55,8 @@ function compressBoxesTwice(boxes, boxes2) {
         
     })
 }
+
+compressBoxesTwice([1,2,3], [4,5])
 
 // NB ---> DIFFERENT INPUTS SHOULD HAVE DIFFERENT VARIABLES !!!! 
 

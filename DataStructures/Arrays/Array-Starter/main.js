@@ -34,7 +34,7 @@ strings.sort() = ['a', 'alien', 'b', 'c', 'd', 'x']
 
 //------------------- slice ---------------
 
-let slicedStrings = strings.slice(0, 2); = ['a', 'alien']
+let slicedStrings = strings.slice(0, 2) = ['a', 'alien']
 // O(n)
 
 //------------------- map (& filter) ---------------

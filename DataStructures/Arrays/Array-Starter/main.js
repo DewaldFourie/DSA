@@ -1,44 +1,96 @@
 
-const strings = ['a', 'b', 'c', 'd'];
-// 4 * 4 = 16 bytes of storage
+// const strings = ['a', 'b', 'c', 'd'];
+// // 4 * 4 = 16 bytes of storage
 
-//------------------- access -------------
+// //------------------- access -------------
 
-strings[2] = c
-// O(1)
+// strings[2] = c
+// // O(1)
 
-//------------------- push ---------------
+// //------------------- push ---------------
 
-strings.push('e') = ['a', 'b', 'c', 'd', 'e']
-// O(1)
+// strings.push('e') = ['a', 'b', 'c', 'd', 'e']
+// // O(1)
 
-//------------------- pop ---------------
+// //------------------- pop ---------------
 
-strings.pop() = ['a', 'b', 'c', 'd']
-// O(1)
+// strings.pop() = ['a', 'b', 'c', 'd']
+// // O(1)
 
-//------------------- unshift ---------------
+// //------------------- unshift ---------------
 
-strings.unshift('x') = ['x', 'a', 'b', 'c', 'd']
-// O(n)
+// strings.unshift('x') = ['x', 'a', 'b', 'c', 'd']
+// // O(n)
 
-//------------------- splice ---------------
+// //------------------- splice ---------------
 
-strings.splice(2, 0, 'alien') = ['x', 'a', 'alien', 'b', 'c', 'd']
-// O(n)
+// strings.splice(2, 0, 'alien') = ['x', 'a', 'alien', 'b', 'c', 'd']
+// // O(n)
 
-//------------------- sort ---------------
+// //------------------- sort ---------------
 
-strings.sort() = ['a', 'alien', 'b', 'c', 'd', 'x']
-// O(n log(n))
+// strings.sort() = ['a', 'alien', 'b', 'c', 'd', 'x']
+// // O(n log(n))
 
-//------------------- slice ---------------
+// //------------------- slice ---------------
 
-let slicedStrings = strings.slice(0, 2) = ['a', 'alien']
-// O(n)
+// let slicedStrings = strings.slice(0, 2) = ['a', 'alien']
+// // O(n)
 
-//------------------- map (& filter) ---------------
+// //------------------- map (& filter) ---------------
 
-let mapStrings = strings.map(val => val + 'map') = ['amap', 'alienmap', 'bmap', 'cmap', 'dmap', 'xmap']
-// O(n)
+// let mapStrings = strings.map(val => val + 'map') = ['amap', 'alienmap', 'bmap', 'cmap', 'dmap', 'xmap']
+// // O(n)
+
+
+
+// --------------------------------------------------------------------------------------------------
+// ------------------ Implementing an ARRAY ---------------------------------------------------------
+
+
+class MyArray {
+    constructor() {
+        this.length = 0
+        this.data = {}
+    }
+
+    get(index) {
+        return this.data[index]
+    }
+
+    push(item) {
+        this.data[this.length] = item;
+        this.length++
+        return this.length;
+    }
+
+    pop() {
+        const lastItem = this.data[this.length - 1];
+        delete this.data[this.length - 1];
+        this.length--
+        return lastItem
+    }
+
+    delete(index) {
+        const item = this.data[index];
+        this.shiftItems(index);
+    }
+
+    shiftItems(index) {
+        for (let i = index; i < this.length - 1; i++){
+            this.data[i] = this.data[i+1];
+        }
+        delete this.data[this.length - 1]
+        this.length--
+    }
+
+}
+
+const newArray = new MyArray();
+newArray.push('hi')
+newArray.push('you')
+newArray.push('!')
+newArray.pop()
+console.log(newArray);
+
 

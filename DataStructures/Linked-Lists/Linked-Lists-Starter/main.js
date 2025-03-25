@@ -25,18 +25,18 @@
 // Create a Link List in JavaScript
 // 10 --> 5 --> 16
 
-let myLinkedList = {
-    head: {
-        value: 10,
-        next: {
-            value: 5,
-            next: {
-                value: 16,
-                next: null
-            }
-        }
-    }
-}
+// let myLinkedList = {
+//     head: {
+//         value: 10,
+//         next: {
+//             value: 5,
+//             next: {
+//                 value: 16,
+//                 next: null
+//             }
+//         }
+//     }
+// }
 
 class Node {
     constructor(value) {
@@ -91,13 +91,11 @@ class LinkedList {
     insert(index, value) {
         // check if index > array length, just append value to end
         if (index >= this.length) {
-            this.append(value)
-            return this
+            return this.append(value)
         }
         // check if index === 0, just prepend value to head
         if (index === 0) {
-            this.prepend(value)
-            return this
+            return this.prepend(value)
         }
 
         // create a pre node and set equal to head
@@ -119,6 +117,38 @@ class LinkedList {
     }
 
 
+    remove(index) {
+        // Check if index is out of bounds
+        if (index < 0 || index >= this.length || !this.head) return;
+    
+        // If removing the head node
+        if (index === 0) {
+            this.head = this.head.next;
+            if (!this.head) this.tail = null; // If the list becomes empty
+        } else {
+            let pre = this.head;
+    
+            // Traverse the list to find the node before the one we want to remove
+            for (let i = 0; i < index - 1; i++) {
+                pre = pre.next;
+            }
+    
+            let nodeToBeRemoved = pre.next;
+            if (!nodeToBeRemoved) return; // Safety check
+    
+            // Update the next pointer to skip the removed node
+            pre.next = nodeToBeRemoved.next;
+    
+            // If we're removing the last node, update tail reference
+            if (!pre.next) this.tail = pre;
+        }
+    
+        this.length--; // Reduce the length of the linked list
+    }
+    
+    
+
+
 }
 
 const linkedList = new LinkedList(10)
@@ -130,6 +160,18 @@ linkedList.prepend(1)
 
 linkedList.printList()
 
-linkedList.insert(0, 20)
+linkedList.insert(2, 20)
+
+linkedList.printList()
+
+linkedList.insert(20, 8)
+
+linkedList.printList()
+
+linkedList.remove(0)
+
+linkedList.printList()
+
+linkedList.remove(2)
 
 linkedList.printList()

@@ -146,7 +146,24 @@ class LinkedList {
         this.length--; // Reduce the length of the linked list
     }
     
+
+    reverse() {
+        // If the list is empty or has only one node, no need to reverse
+        if (!this.head || !this.head.next) return;
     
+        let prev = null;
+        let current = this.head;
+        this.tail = this.head; // The old head becomes the new tail
+    
+        while (current) {
+            let next = current.next; // Store next node
+            current.next = prev; // Reverse the link
+            prev = current; // Move prev forward
+            current = next; // Move current forward
+        }
+    
+        this.head = prev; // Update head to new front of the list
+    }
 
 
 }
@@ -157,21 +174,19 @@ const linkedList = new LinkedList(10)
 linkedList.append(5)
 linkedList.append(16)
 linkedList.prepend(1)
-
 linkedList.printList()
 
 linkedList.insert(2, 20)
-
 linkedList.printList()
 
 linkedList.insert(20, 8)
-
 linkedList.printList()
 
 linkedList.remove(0)
-
 linkedList.printList()
 
 linkedList.remove(2)
+linkedList.printList()
 
+linkedList.reverse()
 linkedList.printList()

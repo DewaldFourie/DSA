@@ -98,6 +98,93 @@ class BinarySearchTree {
         }
         return 'Element not in Tree'
     }
+
+
+    // ------- REMOVE FUNCTION IS ADVANCED FOR INTERVIEWS ----------
+
+    remove(value) {
+        // check if root exist, if no root, no tree
+        if (!this.root) return 'No tree Exists'
+        
+        let current = this.root;
+        let parent = null;
+        while (current) {
+            if ( value < current.value ) {
+                // go left
+                parent = current
+                current = current.left;
+            }
+            else if ( value > current.value ) {
+                // go right
+                parent = current
+                current = current.right
+            }
+            else if ( value === current.value ) {
+                // match found
+                // option 1: no right child
+                if ( !current.right ) {
+                    // if parent node  = null
+                    if (!parent) {
+                        this.root = current.left
+                    } else {
+                        // if parent > current value, set parent.left = current.left
+                        if ( current.value < parent.value ) {
+                            parent.left = current.left
+                        } 
+                        // if parent < current value, set parent.right = current.left
+                        else if ( current.value > parent.value ) {
+                            parent.right = current.left
+                        }
+                    }
+
+                } 
+                // option 2: Right child which doesn't have a left child
+                else if ( !current.right.left ) {
+                    // if parent node  = null
+                    if (!parent) {
+                        this.root = current.left
+                    } else {
+                        current.right.left = current.left
+                        // if parent > current value, set parent.left = current.right
+                        if ( current.value < parent.value ) {
+                            parent.left = current.right
+                        }
+                        // if parent  < current value, set parent.right = current.right
+                        else if ( current.value > parent.value ) {
+                            parent.right = current.right
+                        }
+                    }
+                }
+                // option 3: Right child that has a left child
+                else {
+                    // find the right child's left most child
+                    let leftmost = current.right.left;
+                    let leftmostParent = current.right;
+                    while( leftmost.left ) {
+                        leftmostParent =leftmost;
+                        leftmost = leftmost.left;
+                    }
+
+                    // parent's left subtree is now leftmost's right subtree
+                    leftmostParent.left = leftmost.right
+                    leftmost.left = current.left
+                    leftmost.right = current.right
+
+                    if (!parent) {
+                        this.root = leftmost
+                    } else {
+                        if ( current.value < parent.value ) {
+                            parent.left = leftmost;
+                        }
+                        else if ( current.value > parent.value ) {
+                            parent.right = leftmost
+                        }
+                    }
+                }
+                return true
+            }
+        }
+    }
 }
 
 // traverse function  

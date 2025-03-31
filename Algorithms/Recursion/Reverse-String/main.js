@@ -1,4 +1,6 @@
 
+// REVERSE A STRING => 'yoyo master' should be 'retsam oyoy'
+
 // Iterative
 function reverseString(str) {
     let data = []
@@ -10,6 +12,7 @@ function reverseString(str) {
 
 console.log(reverseString("yoyo master"))
 
+//---------------------------------------------------------------------------
 
 // Recursion
 function reverseStringRecursive(str) {
@@ -21,3 +24,24 @@ function reverseStringRecursive(str) {
 }
 
 console.log(reverseStringRecursive("yoyo master"));
+
+//---------------------------------------------------------------------------
+
+// 2 Pointer Approach (in place)
+
+function reverseStringInPlace(str) {
+    let arr = str.split(''); // Convert to an array (mutable)
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+        // Swap characters
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
+    }
+
+    return arr.join(''); // Convert back to string
+}
+
+console.log(reverseStringInPlace("yoyo master")); 

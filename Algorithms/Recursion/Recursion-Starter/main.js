@@ -1,6 +1,9 @@
 
 // --------- RECURSION ------------------------
 
+// Every time you use a tree or converting something into a tree
+// consider recursion
+
 // Recursion can lead to stack overflow
 // (INFINITE LOOPS)
 
@@ -33,4 +36,14 @@
 //              1. Identify BASE CASE
 //              2. Identify RECURSIVE CASE
 //              3. Get closer and closer and RETURN when needed (Usually have 2 RETURNS)
+
+
+// PROS
+//  - DRY
+//  - Readability
+
+// CONS 
+//  - Large Stack
+
+
 

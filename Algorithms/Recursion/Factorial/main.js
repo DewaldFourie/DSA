@@ -1,10 +1,25 @@
 
 
 // Write two functions that finds the factorial of any number. 
-// one should use recursive, the other should just use a for loop
+// one should just use a for loop, the other one should use a recursive function
+
+// Iterative  (easy)
+function findFactorialIterative(number) {     // O(n)
+    let result = 1;
+    for (let i = number; i > 0; i--){
+        result *= number
+        number--
+    }
+    return result
+}
+
+console.log(findFactorialIterative(5));
+
+// ------------------------------------------------------------------
+
 
 // Recursive 
-function findFactorialRecursive(number) {
+function findFactorialRecursive(number) {      // O(n)
     if (number === 0) return 1
     return number * findFactorialRecursive(number - 1)
 }
@@ -19,20 +34,3 @@ console.log(findFactorialRecursive(5));
 // thus: 1 * 1 * 2 * 3 * 4 * 5 = 120
 
 // think about the CALL STACK
-
-// ------------------------------------------------------------------
-
-// Iterative 
-function findFactorialIterative(number) {
-    let result = 1;
-    for (let i = number; i > 0; i--){
-        result *= number
-        number--
-    }
-    return result
-}
-
-console.log(findFactorialIterative(5));
-
-
-

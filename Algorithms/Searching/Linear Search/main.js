@@ -1,6 +1,6 @@
 
 
-// Linear Search (Brute force)
+// Linear Search (Brute force) (sequential)
 
 // go one by one looking through the list
 

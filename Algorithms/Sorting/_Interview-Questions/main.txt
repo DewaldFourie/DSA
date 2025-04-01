@@ -1,0 +1,43 @@
+
+
+--- What sorting algorithm will work best for: ----
+
+
+#1 - Sort 10 Schools around your house by distance:
+
+    = Insertion sort
+
+
+#2 - eBay sorts Listing by the current bid amount:
+
+    = Radix 
+
+
+#3 - Sport scores on ESPN:
+
+    = Quick sort
+
+
+#4 - Massive Database(can't fit all into memory), needs to sort through past year's user data:
+
+    = Merge Sort
+
+
+#5 - Almost Sorted UDemy review data needs to update and add 3 new reviews:
+
+    = Insertion sort
+
+
+#6 - Temperature Records for the past 50 years in Canada:
+
+    = Radix (if no decimal), otherwise Quick sort
+
+
+#7 - Large user name database needs to be sorted. Data is very Random:
+
+    = Merge Sort 
+
+
+#8 - You want to teach sorting for the first time:
+
+    = Bubble

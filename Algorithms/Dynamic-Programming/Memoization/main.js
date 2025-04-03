@@ -2,6 +2,8 @@
 
 // Dynamic Programming
 
+// REDUCE THE TIME AND SPACE COMPLEXITY , Big O
+
 // It is a way to solve problems by breaking it down into a collection of sub-problems
 // Solving each of those sub-problems justs once and storing(caching) their solutions
 // Incase next time the same sub-problem occurs
@@ -14,7 +16,6 @@
 //------ Memoization -------------------------------------------
 // 
 // a specific form of caching 
-
 
 // a basic function
 // function addTo80(n) {

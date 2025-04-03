@@ -67,3 +67,11 @@ console.log('# of calculations', calculationsFast);
 // takes me 13 calculations....
 
 // Thus 13 is much faster and better than 41
+
+// With Fib(35) it gets really interesting
+//
+// The Recursive Slow method takes 29860703 calculations
+//
+//                  VS
+//
+// The Dynamic Fast method takes only 69 calculations....

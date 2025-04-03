@@ -65,7 +65,7 @@ console.log('Fasterfib = ', fasterFib(7));
 console.log('# of calculations', calculationsFast);
 
 // takes me 13 calculations....
-// time complexity = O(n) 
+// time complexity = O(n) , but space complexity gets traded off a bit here because of cache = {}
 
 // Thus 13 is much faster and better than 41
 

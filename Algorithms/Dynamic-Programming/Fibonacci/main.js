@@ -9,13 +9,11 @@
 // But, how efficient is this function ???
 // let's see
 
-let calculations = 0;
+let calculationsSlow = 0;
 
 /// remember this is O(2^n)
 function fibonacciRecursive(n) {
-    calculations++
-    console.log('# of calculations: ', calculations);
-    
+    calculationsSlow++
     if (n < 2) {
         return n
     }
@@ -23,9 +21,13 @@ function fibonacciRecursive(n) {
 }
 
 // if I do fib(7) 
-console.log(fibonacciRecursive(7));  
+console.log('SLOW RECURSIVE');
+console.log('SlowerFib = ', fibonacciRecursive(7));  
+console.log('# of calculations', calculationsSlow);
+console.log('');
+console.log('');
 // 
-// takes me 43 calculations....
+// takes me 41 calculations....
 //
 // thus it is not very efficient ....
 //
@@ -33,5 +35,35 @@ console.log(fibonacciRecursive(7));
 //
 // from O(2^n)  to  O(n)   ,   This is MUCH better
 //
+//
 
+let calculationsFast = 0
 
+function fibonacci() {
+    const cache = {};
+    return function fib(n) {
+        calculationsFast++
+        if (n in cache) {
+            return cache[n];
+        } else {
+            if (n < 2) {
+                return n
+            } else {
+                cache[n] = fib(n - 1) + fib(n - 2)
+                return cache[n]
+            }
+        }
+    }   
+}
+
+// Now if you use this fibonacci function, it should be much more efficient
+
+const fasterFib = fibonacci();
+
+console.log('FAST DYNAMIC');
+console.log('Fasterfib = ', fasterFib(7));
+console.log('# of calculations', calculationsFast);
+
+// takes me 13 calculations....
+
+// Thus 13 is much faster and better than 41

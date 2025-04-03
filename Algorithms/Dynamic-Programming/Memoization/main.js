@@ -2,6 +2,8 @@
 
 // Dynamic Programming
 
+// Dynamic Programming = Divide & Conquer + Memoization
+
 // REDUCE THE TIME AND SPACE COMPLEXITY , Big O
 
 // It is a way to solve problems by breaking it down into a collection of sub-problems

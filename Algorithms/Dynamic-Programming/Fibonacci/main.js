@@ -76,3 +76,5 @@ console.log('# of calculations', calculationsFast);
 //                  VS
 //
 // The Dynamic Fast method takes only 69 calculations....
+
+re
